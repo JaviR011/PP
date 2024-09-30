@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <title>MendozaAngel</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <!-- MENU ENCABEZADO -->
+    <div class="contenedor-header">
+        <header>
+            <div class="logo">
+                <a href="index.html"> <div class="arrow"></div></a>
+            </div>
+            <nav id="nav">
+                    <a href="index.html"></a>
+                <ul>
+                    <li><a href="#inicio" onclick="seleccionar()">INICIO</a></li>
+                    <li><a href="#sobremi" onclick="seleccionar()">SOBRE MI</a></li>
+                    <li><a href="#trayectoria" onclick="seleccionar()">TRAYECTORIA</a></li>
+                </ul>
+            </nav>
+            <div class="nav-responsive" onclick="mostrarOcultarMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </header>
+    </div>
+
+    <!-- SECCION INICIO -->
+    <section id="inicio" class="inicio">
+        <div class="contenido-banner">
+            <div class="contenedor-img">
+                <img src="img/hero.png" alt="">
+            </div>
+            <h1>Ángel Mendoza</h1>
+            <h2>Estudiante de Ingeniería en Computación</h2>
+            <div class="redes">
+                <a href="https://www.github.com/angelrz/"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/angelrz/"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#"><i class="fa-solid fa-rss"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCION SOBRE MI -->
+    <section id="sobremi" class="sobremi">
+        <div class="contenido-seccion">
+            <h2>Sobre Mí</h2>
+            <p><span>Hola, soy Ángel Jesús Mendoza Rodríguez.<br></span> 
+            Actualmente estudió Ingeniería en Computación en la Facultad de Ingeniería de la UNAM, tengo 20 años, no tengo un género de música favorito pero detesto la salsa, mis principales pasatiempos son jugar los videojuegos y practicar o ver fútbol, mi película favorita es Hasta el Último Hombre. y mi comida favorita son los tacos de pastor, 
+            </p>
+
+            <div class="fila">
+                <!-- datos personales -->
+                <div class="col">
+                    <h3>Datos Personales</h3>
+                    <ul>
+                        <li>
+                            <strong>Cumpleaños</strong>
+                            9 de diciembre
+                        </li>
+                        <li>
+                            <strong>Teléfono</strong>
+                            55 ---- 7227
+                        </li>
+                        <li>
+                            <strong>Email</strong>
+                            <a href="mailto:mendozarodriguezangeljesus@gmail.com" target="_blank">mendozarodriguezangeljesus@gmail.com</a>
+                        </li>
+                        <li>
+                            <strong>Dirección</strong>
+                            292 Tláhuac, CDMX, Mexico
+                        </li>
+                        <li>
+                            <strong>Ocupación</strong>
+                            <span>Estudiante</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- intereses -->
+                <div class="col">
+                    <h3>Intereses</h3>
+                    <div class="contenedor-intereses">
+                        <div class="interes">
+                            <i class="fa-solid fa-gamepad"></i>
+                            <span>JUEGOS</span>
+                        </div>
+                        <div class="interes">
+                            <i class="fa-solid fa-headphones"></i>
+                            <span>MUSICA</span>
+                        </div>
+                        <div class="interes">
+                            <i class="fa-brands fa-linux"></i>
+                            <span>GNU/Linux</span>
+                        </div>
+                        <div class="interes">
+                            <i class="fa-solid fa-soccer-ball"></i>
+                            <span>DEPORTE</span>
+                        </div>
+                        <div class="interes">
+                            <i class="fa-solid fa-book"></i>
+                            <span>LIBROS</span>
+                        </div>
+                        <div class="interes">
+                            <i class="fa-solid fa-computer"></i>
+                            <span>PC's</span>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seccion Trayectoria -->
+    <section id="trayectoria" class="trayectoria">
+        <div class="contenido-seccion">
+            <h2>Trayectoria</h2>
+            <div class="fila">
+                <div class="col izquierda">
+                    <h3>Educación</h3>
+                    <div class="item izq">
+                        <h4>Preescolar</h4>
+                        <span class="casa">Jardín de Niños Yoacalli</span>
+                        <span class="fecha">2007 - 2009</span>
+                        <p>Desarrollé habilidades socioemocionales y me adapté al entorno escolar. Además, habilidades de comunicación, lenguaje básico y pensamiento matemático inicial.</p>
+                        <div class="conectori">
+                            <div class="circuloi"></div>
+                        </div>
+                    </div>
+                    <div class="item izq">
+                        <h4>Secundaria</h4>
+                        <span class="casa">Escuela Técnica Secundaria No. 116</span>
+                        <span class="fecha">2015 - 2018</span>
+                        <p>En esta etapa profundicé en lenguaje y literatura, matemáticas (incluyendo álgebra y geometría), ciencias: biología, física y química, historia universal y de México, geografía, lengua extranjera, educación de Computación, entre otras.</p>
+                        <div class="conectori">
+                            <div class="circuloi"></div>
+                        </div>
+                    </div>
+                    <div class="item izq">
+                        <h4>Licenciatura</h4>
+                        <span class="casa">Facultad de Ingeniería</span>
+                        <span class="fecha">2021 - Actualidad</span>
+                        <p>Actualmente, estudio Ingeniería en Computación, donde profundicé en fundamentos de programación y estructuras de datos, adquiriendo habilidades en C y Python. Estudié matemáticas aplicadas a la computación, incluyendo álgebra lineal, cálculo vectorial y matemáticas discretas. Exploré la arquitectura de computadoras, así como el diseño y análisis de algoritmos y bases de datos. Aprendí sobre principios de ingeniería de software y metodologías de desarrollo. Complementariamente, cursé materias de ciencias básicas como física y probabilidad, junto con asignaturas socio-humanísticas que han enriquecido mi formación integral como ingeniero.
+                        </p>
+                        <div class="conectori">
+                            <div class="circuloi"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col derecha">
+                    <br><br><br><br><br><br>
+                    <div class="item der">
+                        <h4>Primaria</h4>
+                        <span class="casa">Escuela Primaria Nicolás León</span>
+                        <span class="fecha">2009 - 2015</span>
+                        <p>Aprendí habilidades de lectoescritura y comprensión lectora, matemáticas básicas y resolución de problemas, ciencias naturales y sociales, historia y geografía de México, educación cívica y ética, entre otras cosas.</p>
+                        <div class="conectord">
+                            <div class="circulod"></div>
+                        </div>
+                    </div><br><br>
+                    <div class="item der">
+                        <h4>Bachillerato</h4>
+                        <span class="casa">Colegio de Ciencias y Humanidades Plantel Oriente</span>
+                        <span class="fecha">2018 - 2021</span>
+                        <p>En CCH, logré una formación académica integral, aprendiendo: ciencias exactas y naturales, humanidades y ciencias sociales, comunicación y lenguaje, habilidades de pensamiento crítico, métodos de investigación y estudio autónomo, etc. Además, aquí eligí la carrera que estudiaría.</p>
+                        <div class="conectord">
+                            <div class="circulod"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer>
+        <a href="#inicio" class="arriba">
+            <i class="fa-solid fa-angles-up"></i>
+        </a>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

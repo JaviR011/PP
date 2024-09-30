@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Información Personal</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #6482ef 0%, #f0f0f0 100%);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            animation: gradientBackground 10s ease infinite;
+            background-size: 400% 400%;
+        }
+        @keyframes gradientBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #70e1f5 0%, #5f7efe 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            border-bottom: 3px solid #333;
+        }
+        header img {
+            width: 50px; /* Ajusta el tamaño de los logos */
+            height: auto;
+            margin: 0 20px; /* Espaciado entre los logos y el texto */
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #fff;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+        }
+        .nav-buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .nav-buttons button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            background-color: #423cf0;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .nav-buttons button:hover {
+            background-color: #2e83f4;
+        }
+        section {
+            margin: 30px auto;
+            padding: 25px;
+            width: 80%;
+            max-width: 900px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+            display: none;
+        }
+        section.active {
+            display: block;
+        }
+        h2 {
+            color: #37383a;
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            border-bottom: 2px solid #0c0c0c;
+            padding-bottom: 5px;
+        }
+        .info {
+            padding: 20px;
+            background-color: #dbe9f1;
+            border-left: 8px solid #2e83f4;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .image-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .image-container img {
+            width: 400px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .image-container img:hover {
+            transform: scale(1.05);
+        }
+        footer {
+            background-color: #1723a9;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            box-shadow: 0px -2px 6px rgba(0, 0, 0, 0.2);
+        }
+        footer p {
+            margin: 0;
+            font-size: 1.1em;
+        }
+
+        .arrow {
+            width: 0;
+            height: 0;
+            border-top: 20px solid transparent;
+            border-bottom: 20px solid transparent;
+            border-right: 50px solid #3b50c6; /* Color de la flecha */
+            border-radius: 20px; /* Bordes redondeados */
+            transform: rotate(0deg); /* Girar si se desea */
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html"> <div class="arrow"></div>  </a>
+    <img src="logounam.png" alt="Logo Izquierdo"> <!-- Logo Izquierdo -->
+    <h1>Marco Antonio</h1>
+    <img src="escudo_fi_color.png" alt="Logo Derecho"> <!-- Logo Derecho -->
+</header>
+
+<div class="nav-buttons">
+    <button onclick="showSection('personal')">Información Personal</button>
+    <button onclick="showSection('universidad')">Universidad</button>
+    <button onclick="showSection('Un poco de mi')">Un poco de mi</button>
+</div>
+
+<section id="personal" class="active">
+    <h2>Información Personal</h2>
+    <div class="info">
+        <p><strong>Nombre:</strong> Marco Antonio Machorro Villa</p>
+        <p><strong>Edad:</strong> 21 años</p>
+        <p><strong>Fecha de Nacimiento:</strong> 29 de Junio de 2003</p>
+    </div>
+    <div class="image-container">
+        <img src="yo.jpeg" alt="Jugador de Fútbol">
+    </div>
+</section>
+
+<section id="universidad">
+    <h2>Universidad</h2>
+    <div class="info">
+        <p><strong>Profesión:</strong> Estudiante de la Facultad de Ingeniería</p>
+        <p><strong>Universidad:</strong> Universidad Nacional Autónoma de México</p>
+        <div class="image-container">
+            <img src="Facultad.jpg" alt="Facultad de Ingeniería">
+        </div>
+    </div>
+</section>
+
+<section id="Un poco de mi">
+    <h2>Un poco de mi</h2>
+    <div class="info">
+        <p>Me gusta jugar fútbol y verlo, disfruto el ir a conciertos y salir a divertirme con mis amigos, además de conocer nuevos lugares.</p>
+        <p>También me interesa explorar nuevas herramientas de software como el desarrollo de aplicaciones Android y el diseño de sistemas digitales.</p>
+    </div>
+    <div class="image-container">
+        <img src="YoFuera.jpeg" alt="Jugador de Fútbol">
+    </div>
+</section>
+
+<footer>
+    <p>© 2024 Marco Antonio - Estudiante de Ingeniería en la UNAM</p>
+</footer>
+
+<script>
+    function showSection(sectionId) {
+        // Oculta todas las secciones
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.remove('active');
+        });
+        // Muestra la sección seleccionada
+        document.getElementById(sectionId).classList.add('active');
+    }
+</script>
+
+</body>
+</html>

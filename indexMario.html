@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Personal de Luis Mario</title>
+    <link rel="stylesheet" href="css/stylesMARIO.css">
+    <style>
+        /* Reset de márgenes y paddings */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000000; /* Un tono más brillante de morado */
+            color: #FFFFFF;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            transition: background-color 0.5s ease;
+        }
+
+        /* Estilos para el Header */
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1001;
+            box-shadow: 0 2px 5px rgba(255, 253, 253, 0.5);
+        }
+
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5em;
+            color: #dadada; /* Dorado */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* Espacio superior para evitar que el contenido quede debajo del header */
+        body {
+            padding-top: 80px;
+        }
+
+        /* Estilos Generales para Secciones */
+        section {
+            padding: 60px 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            display: none; /* Ocultar todas las secciones inicialmente */
+        }
+
+        section.active {
+            display: block; /* Mostrar la sección activa */
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Estilos para Títulos */
+        h1, h2 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 20px;
+            color: #fdfdfd; /* Color dorado para los títulos */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        h1 {
+            font-size: 3em;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            font-size: 2em;
+            border-bottom: 2px solid #fffef9;
+            display: inline-block;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        /* Estilos para Párrafos */
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #ffffff; /* Un color claro para los textos */
+        }
+
+        /* Estilos para Listas */
+        ul {
+            list-style-type: none;
+            padding: 0;
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #ffffff;
+        }
+
+        li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        li::before {
+            content: "✔️"; /* Icono de verificación */
+            position: absolute;
+            left: 0;
+            color: #32CD32; /* Verde para los iconos */
+        }
+
+        /* Estilos para Botones de Navegación */
+        .nav-buttons {
+            position: fixed;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            pointer-events: none; /* Permite que solo los botones reciban eventos */
+            z-index: 1000;
+        }
+
+        .nav-buttons button {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #4B0082;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 24px;
+            border-radius: 50%;
+            pointer-events: all; /* Habilita los eventos para los botones */
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .nav-buttons button:hover {
+            background-color: rgba(255, 255, 255, 1);
+            transform: scale(1.1);
+        }
+
+        /* Estilos para los cuadros de videojuegos y música */
+        .videojuego, .musica {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Estilos para Reproductores de Spotify */
+        .music iframe {
+            margin-top: 20px;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .music iframe:hover {
+            transform: scale(1.02);
+        }
+
+        /* Estilos para el Mapa */
+        iframe.map {
+            width: 100%;
+            max-width: 600px;
+            height: 450px;
+            border: 0;
+            border-radius: 12px;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Estilos para el Footer */
+        footer {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fafafa;
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 5px rgba(55, 255, 255, 0.5);
+        }
+
+        footer p {
+            font-size: 1em;
+            margin: 5px 0;
+        }
+
+        footer a {
+            color: #fffffe;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #FFFFFF;
+        }
+
+        /* Responsividad */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            p, ul {
+                font-size: 1em;
+            }
+
+            .nav-buttons button {
+                padding: 10px;
+                font-size: 20px;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+        }
+        .arrow {
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-right: 25px solid #777b7c85; /* Color de la flecha */
+    border-radius: 5px; /* Bordes redondeados */
+    border-left: 25px solid transparent;
+    transform: rotate(0deg); /* Girar si se desea */
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="index.html"><div class="arrow"></div></a>
+        <h1>  Luis Mario</h1>
+    </header>
+
+    <!-- Botones de Navegación -->
+    <div class="nav-buttons">
+        <button id="prevBtn">&#8592;</button> <!-- Flecha Izquierda -->
+        <button id="nextBtn">&#8594;</button> <!-- Flecha Derecha -->
+    </div>
+
+    <!-- Sección de Inicio -->
+    <section id="inicio" class="active">
+        <h1>Hola. Soy Luis Mario</h1>
+        <p>En esta pagina conoceras un poco mas sobre mi </p>
+        <img id="imagenMARIO" src="imgMARIO/yoimg.jpg" alt="Imagen de Luis Mario">
+    </section>
+
+    <!-- Sección Sobre mí -->
+    <section id="sobre-mi">
+        <h2>Sobre mí</h2>
+        <p>Me considero una persona introvertida, pero puedo llevarme bien con la mayoría de las personas que se me acercan.</p>
+        <p>Me gusta mucho jugar videojuegos:</p>
+
+        <!-- Sección de Videojuegos -->
+        <div class="videojuego">
+            <h3>Call of Duty</h3>
+            <img src="imgMARIO/warzoneimg.avif" alt="Call of Duty">
+            <video width="640" height="360" controls>
+                <source src="imgMARIO/coood.mp4" type="video/mp4">
+                Tu navegador no soporta el elemento de video.
+            </video>  
+            <p>Call of Duty es una de mis franquicias favoritas por su emocionante jugabilidad y la variedad de modos de juego.</p>
+        </div>
+
+        <div class="videojuego">
+            <h3>Gears of War</h3>
+            <img src="imgMARIO/Gears_of_War_Portada.webp" alt="Gears of War">
+
+            <p>Gears of War me cautivó por su narrativa envolvente y su estilo de combate táctico.</p>
+        </div>
+
+        <div class="videojuego">
+            <h3>Halo</h3>
+            <img src="imgMARIO/capsule_616x353.jpg" alt="Halo">
+
+            <p>Halo es un clásico que no solo define el género de disparos, sino que también cuenta con una historia épica.</p>
+        </div>
+
+        <div class="videojuego">
+            <h3>God of War</h3>
+            <img src="imgMARIO/godofwarimg.avif" alt="God of War">
+            <video width="640" height="360" controls>
+                <source src="imgMARIO/godofwar.mp4" type="video/mp4">
+                Tu navegador no soporta el elemento de video.
+            </video>
+            <p>God of War me ha impresionado con su narrativa profunda y sus gráficos impresionantes.</p>
+        </div>
+    </section>
+
+    <!-- Sección Música -->
+    <section id="musica">
+        <h2>Música</h2>
+        <p>Mis gustos musicales han evolucionado en el tiempo, y actualmente disfruto de los siguientes géneros:</p>
+
+        <div class="musica">
+            <h3>Electronica</h3>
+            <p>La música electrónica es una de mis preferencias por sus ritmos energéticos y su capacidad para animar cualquier fiesta.</p>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2V65y3PX4DkRhy1djlxd9p?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1CKtxKqyFsFITCH4SpDrWj?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6EsH66Uto1zwZlDGQ6RokU?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+
+        <div class="musica">
+            <h3>Rock</h3>
+            <p>El rock me ha acompañado en muchas etapas de mi vida, aportando una mezcla de energía y emoción.</p>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5pRElcsPZrgZXkoON2o5Go?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/58KPPL1AdLHMvR2O2PZejr?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2oNYsdCasRRlz1shXFAz7D?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+
+        <div class="musica">
+            <h3>Trap</h3>
+            <p>El trap destaca por sus ritmos pegajosos y letras que reflejan la vida urbana.</p>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/4LIbjDbLweGCrHVw8QbMSb?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0yYwtyNFxuIAHInOca7ASR?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7xQAfvXzm3AkraOtGPWIZg?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+
+        <div class="musica">
+            <h3>Banda</h3>
+            <p>La música de banda tiene una energía contagiosa que me encanta.</p>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/4CJyeJOhqGQAPrKuxVByIK?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5ghDKwnjuMIbz1qnknzzlb?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/35slTpVgFj2OktYcYUBqAA?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+
+        <div class="musica">
+            <h3>Corridos Tumbados</h3>
+            <p>Los corridos tumbados combinan la tradición con un estilo moderno que me atrapa.</p>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5gS11pL9yQcnKrzbmliOwh?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3vNbeTfvuKiwPyPSd8HbUq?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1RkkjNnU8I4PDrzkZHECWf?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <!-- Experiencia -->
+    <!-- Sección Experiencia -->
+<section id="experiencia">
+    <h2>Experiencia</h2>
+    <img src="imgMARIO/experiencia.webp" alt="Experiencia">
+
+    <!-- Educación Preescolar-Secundaria -->
+    <div class="experiencia">
+        <h3>Educación Preescolar-Secundaria</h3>
+        <p>Estudié en la misma escuela desde preescolar hasta secundaria.</p>
+        <img src="imgMARIO/LUJV.jpg" alt="Liceo Universitario José Vasconcelos">
+        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.3878254245096!2d-99.00184348844297!3d19.178256048678048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce1ab9acac3a3f%3A0x4270e9ee417e71ca!2sLiceo%20Universitario%20Jos%C3%A9%20Vasconcelos!5e0!3m2!1ses-419!2smx!4v1727637846711!5m2!1ses-419!2smx" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <!-- Educación Media Superior -->
+    <div class="experiencia">
+        <h3>Educación Media Superior</h3>
+        <p>Estudié el bachillerato en el CCH Sur.</p>
+        <img src="imgMARIO/chh.jpg" alt="Colegio de Ciencias y Humanidades Plantel Sur">
+        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.346772839023!2d-99.20046769999999!3d19.3107531!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cdffdd616015f5%3A0x8b90d5e9d00fdfd1!2sColegio%20de%20Ciencias%20y%20Humanidades%20Plantel%20Sur%20UNAM!5e0!3m2!1ses-419!2smx!4v1727639374545!5m2!1ses-419!2smx" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <!-- Educación Superior -->
+    <div class="experiencia">
+        <h3>Educación Superior</h3>
+        <p>Actualmente estudio Ingeniería en Computación en la Facultad de Ingeniería.</p>
+        <img src="imgMARIO/ingeniería-unam.jpg" alt="Facultad de Ingeniería UNAM">
+        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3764.8713431839433!2d-99.18728668844057!3d19.331388343828483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce00015be0a713%3A0x3fc11681a8244370!2sFacultad%20de%20Ingenier%C3%ADa%20UNAM!5e0!3m2!1ses-419!2smx!4v1727639396419!5m2!1ses-419!2smx" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <!-- Proyectos en Materias -->
+    <div class="experiencia">
+        <h3>Proyectos en Materias</h3>
+        <p>Durante la carrera he tenido varios proyectos en distintas materias, como Diseño Digital Moderno. A continuación, mostraré dos proyectos que hice, los cuales son muy sencillos:</p>
+
+        <h4>Primer Proyecto</h4>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/z-7eh0MkMD4?si=7-RLmypWUeKM20KB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+        <h4>Segundo Proyecto</h4>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/-oHky4bL0JY?si=9R04uDsyKI_J95D1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+</section>
+
+    <!-- Sección Habilidades -->
+    <section id="habilidades">
+        <h2>Habilidades</h2>
+        <img src="imgMARIO\habilidades.jpg" alt="Habilidades">
+        <ul>
+            <li>Soy bueno al trabajar en equipo</li>
+            <li>Soy puntual en las entregas de trabajos</li>
+            <li>Puedo adaptarme a diferentes entornos de trabajo</li>
+        </ul>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <img  src="imgMARIO\gmail.jpg" alt="Contacto">
+        <p>luismarioolivos05@gmail.com</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Luis Mario. Todos los derechos reservados.</p>
+        <p>
+            <a href="https://www.instagram.com/luismario_oj/"  target="_blank">Instagram</a> |
+            <a href="https://github.com/LuisOJ" target="_blank">GitHub</a> |
+            <a href="https://twitter.com/LuisMarioO53323" target="_blank">Twitter</a>
+        </p>
+    </footer>
+
+    <!-- JavaScript para Navegación -->
+    <script>
+        const sections = document.querySelectorAll('section');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentIndex = 0;
+
+        // Función para mostrar la sección actual
+        function showSection(index) {
+            sections.forEach((section, i) => {
+                section.classList.toggle('active', i === index);
+            });
+        }
+
+        // Evento para botón de "Anterior"
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + sections.length) % sections.length;
+            showSection(currentIndex);
+        });
+
+        // Evento para botón de "Siguiente"
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % sections.length;
+            showSection(currentIndex);
+        });
+
+        // Opcional: Navegación con teclas de flecha
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                currentIndex = (currentIndex - 1 + sections.length) % sections.length;
+                showSection(currentIndex);
+            } else if (e.key === 'ArrowRight') {
+                currentIndex = (currentIndex + 1) % sections.length;
+                showSection(currentIndex);
+            }
+        });
+    </script>
+
+</body>
+</html>

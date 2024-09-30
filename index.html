@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página con Grid Interactivo</title>
+    <style>
+        html{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+            height: 100%;
+            transition: background-image 0.5s;
+            background-size: cover;
+            background-position: center;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+            height: 100%;
+            transition: background-image 0.5s;
+            background-image: url('img/fondos.jpg'); /* Imagen de fondo por defecto */
+            background-size: cover;
+            background-position: center;
+        }
+        /* Barra de navegación */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #020202;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            z-index: 1000;
+        }
+
+        /* Contenido principal */
+        .content {
+            margin-top: 60px; /* Espacio para la barra */
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Grid interactivo */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 200px);
+            grid-gap: 20px;
+            align-items: center;
+        }
+
+        .grid-item {
+            background-color: #ffffff7c;
+            padding: 30px;
+            text-align: center;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+            color: #000;
+        }
+
+        .grid-item:hover {
+            transform: scale(1.05);
+            background-color: #ffffffaa;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #000000;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+
+    </style>
+</head>
+<body style=>
+    <!-- Barra de navegación fija -->
+    <div class="navbar">
+
+    </div>
+
+    <!-- Contenido principal con el Grid -->
+    <div style="border: 100px solid transparent;"> </div>
+
+    <div class="content">
+        <div class="grid">
+           <a href="javis.html"> <div class="grid-item" id="item1" data-image="img/jav.png"><b>Javier</b></div></a> 
+           <a href="mendoza.html"> <div class="grid-item" id="item2" data-image="img/ang.png"><b>Angel</b></div></a> 
+            <a href="indexMario.html"> <div class="grid-item" id="item3" data-image="img/mario.png"><b>Mario</b></div></a>
+           <a href="Marco.html">  <div class="grid-item" id="item4" data-image="img/mar.png"><b>Marco</b></div>  </a> 
+        </div>
+    </div>
+
+    <!-- Footer fijo -->
+    <div class="footer">
+  
+    </div>
+
+    <script>
+        // Definir la imagen de fondo por defecto
+        const defaultBackgroundImage = 'img/fondos.jpg';
+
+        // Seleccionar todos los elementos de la cuadrícula
+        const gridItems = document.querySelectorAll('.grid-item');
+
+        // Función para cambiar la imagen de fondo al hacer hover
+        gridItems.forEach(item => {
+            item.addEventListener('mouseover', () => {
+                document.body.style.backgroundImage = `url('${item.dataset.image}')`;
+            });
+
+            item.addEventListener('mouseout', () => {
+                document.body.style.backgroundImage = `url('${defaultBackgroundImage}')`;
+            });
+        });
+    </script>
+</body>
+</html>
